@@ -49,19 +49,67 @@ root.geometry('400x800')
 
 questionOneInfo = questionList[0]
 questionOneLabel = Label(root, text = questionOneInfo[0])
-questionOneLabel.grid()
+questionOneLabel.grid(column = 0, row = 0)
+
+questionOneAnswerOne = Button(root, text = questionOneInfo[1])
+questionOneAnswerOne.grid(column = 0, row = 1)
+questionOneAnswerTwo = Button(root, text = questionOneInfo[2])
+questionOneAnswerTwo.grid(column = 0, row = 2)
+questionOneAnswerThree = Button(root, text = questionOneInfo[3])
+questionOneAnswerThree.grid(column = 0, row = 3)
+
+questionOneSpaceTop = Label(root, text = "")
+questionOneSpaceTop.grid(column=0,row=4)
+questionOneSpaceBottom = Label(root, text = "")
+questionOneSpaceBottom.grid(column=0,row=5)
 
 questionTwoInfo = questionList[1]
 questionTwoLabel = Label(root, text = questionTwoInfo[0])
-questionTwoLabel.grid()
+questionTwoLabel.grid(column = 0, row = 6)
+
+questionTwoAnswerOne = Button(root, text = questionTwoInfo[1])
+questionTwoAnswerOne.grid(column = 0, row = 7)
+questionTwoAnswerTwo = Button(root, text = questionTwoInfo[2])
+questionTwoAnswerTwo.grid(column = 0, row = 8)
+questionTwoAnswerThree = Button(root, text = questionTwoInfo[3])
+questionTwoAnswerThree.grid(column = 0, row = 9)
+
+questionTwoSpaceTop = Label(root, text = "")
+questionTwoSpaceTop.grid(column=0,row=10)
+questionTwoSpaceBottom = Label(root, text = "")
+questionTwoSpaceBottom.grid(column=0,row=11)
 
 questionThreeInfo = questionList[2]
 questionThreeLabel = Label(root, text = questionThreeInfo[0])
-questionThreeLabel.grid()
+questionThreeLabel.grid(column=0,row=12)
+
+questionThreeAnswerOne = Button(root, text = questionThreeInfo[1])
+questionThreeAnswerOne.grid(column = 0, row = 13)
+questionThreeAnswerTwo = Button(root, text = questionThreeInfo[2])
+questionThreeAnswerTwo.grid(column = 0, row = 14)
+questionThreeAnswerThree = Button(root, text = questionThreeInfo[3])
+questionThreeAnswerThree.grid(column = 0, row = 15)
+
+questionThreeSpaceTop = Label(root, text = "")
+questionThreeSpaceTop.grid(column=0,row=16)
+questionThreeSpaceBottom = Label(root, text = "")
+questionThreeSpaceBottom.grid(column=0,row=17)
 
 questionFourInfo = questionList[3]
 questionFourLabel = Label(root, text = questionFourInfo[0])
-questionFourLabel.grid()
+questionFourLabel.grid(column=0,row=18)
+
+questionFourAnswerOne = Button(root, text = questionFourInfo[1])
+questionFourAnswerOne.grid(column = 0, row = 19)
+questionFourAnswerTwo = Button(root, text = questionFourInfo[2])
+questionFourAnswerTwo.grid(column = 0, row = 20)
+questionFourAnswerThree = Button(root, text = questionFourInfo[3])
+questionFourAnswerThree.grid(column = 0, row = 21)
+
+questionFourSpaceTop = Label(root, text = "")
+questionFourSpaceTop.grid(column=0,row=22)
+questionFourSpaceBottom = Label(root, text = "")
+questionFourSpaceBottom.grid(column=0,row=23)
 
 
 
