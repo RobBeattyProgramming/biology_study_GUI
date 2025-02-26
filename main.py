@@ -51,11 +51,11 @@ questionOneInfo = questionList[0]
 questionOneLabel = Label(root, text = questionOneInfo[0])
 questionOneLabel.grid(column = 0, row = 0)
 
-questionOneAnswerOne = Button(root, text = questionOneInfo[1])
+questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1])
 questionOneAnswerOne.grid(column = 0, row = 1)
-questionOneAnswerTwo = Button(root, text = questionOneInfo[2])
+questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2])
 questionOneAnswerTwo.grid(column = 0, row = 2)
-questionOneAnswerThree = Button(root, text = questionOneInfo[3])
+questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3])
 questionOneAnswerThree.grid(column = 0, row = 3)
 
 questionOneSpaceTop = Label(root, text = "")
@@ -67,11 +67,11 @@ questionTwoInfo = questionList[1]
 questionTwoLabel = Label(root, text = questionTwoInfo[0])
 questionTwoLabel.grid(column = 0, row = 6)
 
-questionTwoAnswerOne = Button(root, text = questionTwoInfo[1])
+questionTwoAnswerOne = Checkbutton(root, text = questionTwoInfo[1])
 questionTwoAnswerOne.grid(column = 0, row = 7)
-questionTwoAnswerTwo = Button(root, text = questionTwoInfo[2])
+questionTwoAnswerTwo = Checkbutton(root, text = questionTwoInfo[2])
 questionTwoAnswerTwo.grid(column = 0, row = 8)
-questionTwoAnswerThree = Button(root, text = questionTwoInfo[3])
+questionTwoAnswerThree = Checkbutton(root, text = questionTwoInfo[3])
 questionTwoAnswerThree.grid(column = 0, row = 9)
 
 questionTwoSpaceTop = Label(root, text = "")
@@ -83,11 +83,11 @@ questionThreeInfo = questionList[2]
 questionThreeLabel = Label(root, text = questionThreeInfo[0])
 questionThreeLabel.grid(column=0,row=12)
 
-questionThreeAnswerOne = Button(root, text = questionThreeInfo[1])
+questionThreeAnswerOne = Checkbutton(root, text = questionThreeInfo[1])
 questionThreeAnswerOne.grid(column = 0, row = 13)
-questionThreeAnswerTwo = Button(root, text = questionThreeInfo[2])
+questionThreeAnswerTwo = Checkbutton(root, text = questionThreeInfo[2])
 questionThreeAnswerTwo.grid(column = 0, row = 14)
-questionThreeAnswerThree = Button(root, text = questionThreeInfo[3])
+questionThreeAnswerThree = Checkbutton(root, text = questionThreeInfo[3])
 questionThreeAnswerThree.grid(column = 0, row = 15)
 
 questionThreeSpaceTop = Label(root, text = "")
@@ -99,11 +99,11 @@ questionFourInfo = questionList[3]
 questionFourLabel = Label(root, text = questionFourInfo[0])
 questionFourLabel.grid(column=0,row=18)
 
-questionFourAnswerOne = Button(root, text = questionFourInfo[1])
+questionFourAnswerOne = Checkbutton(root, text = questionFourInfo[1])
 questionFourAnswerOne.grid(column = 0, row = 19)
-questionFourAnswerTwo = Button(root, text = questionFourInfo[2])
+questionFourAnswerTwo = Checkbutton(root, text = questionFourInfo[2])
 questionFourAnswerTwo.grid(column = 0, row = 20)
-questionFourAnswerThree = Button(root, text = questionFourInfo[3])
+questionFourAnswerThree = Checkbutton(root, text = questionFourInfo[3])
 questionFourAnswerThree.grid(column = 0, row = 21)
 
 questionFourSpaceTop = Label(root, text = "")
