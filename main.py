@@ -1,14 +1,6 @@
 import random
 from tkinter import *
 
-root = Tk()
-
-root.title("Biology Beginner Questions")
-root.geometry('400x800')
-
-root.mainloop()
-
-
 testDict = {
     1 : ["What is One plus One?", 2, 1, 3],
     2: ["How much cheese?", "none", 8, "all"],
@@ -32,8 +24,9 @@ while count < 5:
     randomNumberChosen.append(randomNumber)
 
     questionsChosen.append(testDict[randomNumber])
-    questionList = questionsChosen[count]
-    print(questionList[0]) #changing this to display with a GUI
+    questionList.append(questionsChosen[count])
+    #label = Label(root, text = questionList[0])
+    #label.grid()
 
     questionCount = 1
     questionCountList = []
@@ -42,15 +35,40 @@ while count < 5:
         if randomCountNumber in questionCountList:
             continue
         questionCountList.append(randomCountNumber)
-        print(questionCount, ". ", questionList[randomCountNumber])
+        #print(questionCount, ". ", questionList[randomCountNumber])
         questionCount += 1
 
     count += 1
 
 
-for i in questionList:
-    print(i)
+root = Tk()
 
+root.title("Biology Beginner Questions")
+root.geometry('400x800')
+
+
+questionOneInfo = questionList[0]
+questionOneLabel = Label(root, text = questionOneInfo[0])
+questionOneLabel.grid()
+
+questionTwoInfo = questionList[1]
+questionTwoLabel = Label(root, text = questionTwoInfo[0])
+questionTwoLabel.grid()
+
+questionThreeInfo = questionList[2]
+questionThreeLabel = Label(root, text = questionThreeInfo[0])
+questionThreeLabel.grid()
+
+questionFourInfo = questionList[3]
+questionFourLabel = Label(root, text = questionFourInfo[0])
+questionFourLabel.grid()
+
+
+
+        
+
+
+root.mainloop()
 
 
 
