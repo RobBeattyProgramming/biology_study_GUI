@@ -10,11 +10,12 @@ testDict = {
     6: ["How many blimps?", 5, 6, 7]
 }
 
-# random questions are generated on time of loading the program
+
 count = 0
 questionsChosen = []
 questionList = []
 randomNumberChosen = []
+orderedQuestionList = []
 
 while count < 5:
 
@@ -23,6 +24,7 @@ while count < 5:
         continue
     randomNumberChosen.append(randomNumber)
 
+    orderedQuestionList.append(testDict[randomNumber])
     preshuffledList = testDict[randomNumber]
     questionPrompt = preshuffledList[0]
     preshuffledList.remove(questionPrompt)
@@ -45,7 +47,23 @@ while count < 5:
 
 
 def get_values():
-    pass
+    chosenAnswerOne = 0 
+    questionOneList = orderedQuestionList[0]
+
+    if qOneAOne.get() == 1:
+        #questionOneSpaceTop.config(text="YES")
+        if testAnswerOne == questionOneList[1]:
+            questionOneSpaceTop.config(text="YES")
+    elif qOneATwo.get() == 1:
+        if testAnswerTwo == questionOneList[1]:
+            questionOneSpaceTop.config(text="YES")
+    elif qOneAThree.get() == 1:
+        if testAnswerThree == questionOneList[1]:
+            questionOneSpaceTop.config(text="YES")
+
+
+
+
 
     #need to first randomize order of answer options
     #use get method to pull correct answer and see if that answer has been checked
@@ -68,10 +86,13 @@ qOneAThree = IntVar()
 
 questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1], variable=qOneAOne, onvalue=1, offvalue=0) 
 questionOneAnswerOne.grid(column = 0, row = 1)
+testAnswerOne = questionOneInfo[1]
 questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2], variable=qOneATwo)
 questionOneAnswerTwo.grid(column = 0, row = 2)
+testAnswerTwo = questionOneInfo[2]
 questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3], variable=qOneAThree)
 questionOneAnswerThree.grid(column = 0, row = 3)
+testAnswerThree = questionOneInfo[3]
 
 questionOneSpaceTop = Label(root, text = "")
 questionOneSpaceTop.grid(column=0,row=4)
@@ -141,7 +162,8 @@ questionFourSpaceTop.grid(column=0,row=22)
 questionFourSpaceBottom = Label(root, text = "")
 questionFourSpaceBottom.grid(column=0,row=23)
 
-submitButton = Button(root, text = "Submit", command="get_values")
+submitButton = Button(root, text = "Submit", command=get_values)
+submitButton.grid(column=0,row=25)
 
 
 
