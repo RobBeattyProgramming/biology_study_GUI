@@ -51,11 +51,15 @@ questionOneInfo = questionList[0]
 questionOneLabel = Label(root, text = questionOneInfo[0])
 questionOneLabel.grid(column = 0, row = 0)
 
-questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1])
+qOneAOne = IntVar()
+qOneATwo = IntVar()
+qOneAThree = IntVar()
+
+questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1], variable=qOneAOne, onvalue=1, offvalue=0) 
 questionOneAnswerOne.grid(column = 0, row = 1)
-questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2])
+questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2], textvariable=qOneATwo)
 questionOneAnswerTwo.grid(column = 0, row = 2)
-questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3])
+questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3], textvariable=qOneAThree)
 questionOneAnswerThree.grid(column = 0, row = 3)
 
 questionOneSpaceTop = Label(root, text = "")
@@ -67,11 +71,15 @@ questionTwoInfo = questionList[1]
 questionTwoLabel = Label(root, text = questionTwoInfo[0])
 questionTwoLabel.grid(column = 0, row = 6)
 
-questionTwoAnswerOne = Checkbutton(root, text = questionTwoInfo[1])
+qTwoAOne = IntVar()
+qTwoATwo = IntVar()
+qTwoAThree = IntVar()
+
+questionTwoAnswerOne = Checkbutton(root, text = questionTwoInfo[1], variable=qTwoAOne)
 questionTwoAnswerOne.grid(column = 0, row = 7)
-questionTwoAnswerTwo = Checkbutton(root, text = questionTwoInfo[2])
+questionTwoAnswerTwo = Checkbutton(root, text = questionTwoInfo[2], variable=qTwoATwo)
 questionTwoAnswerTwo.grid(column = 0, row = 8)
-questionTwoAnswerThree = Checkbutton(root, text = questionTwoInfo[3])
+questionTwoAnswerThree = Checkbutton(root, text = questionTwoInfo[3], variable=qTwoAThree)
 questionTwoAnswerThree.grid(column = 0, row = 9)
 
 questionTwoSpaceTop = Label(root, text = "")
@@ -83,11 +91,15 @@ questionThreeInfo = questionList[2]
 questionThreeLabel = Label(root, text = questionThreeInfo[0])
 questionThreeLabel.grid(column=0,row=12)
 
-questionThreeAnswerOne = Checkbutton(root, text = questionThreeInfo[1])
+qThreeAOne = IntVar()
+qThreeATwo = IntVar()
+qThreeAThree = IntVar()
+
+questionThreeAnswerOne = Checkbutton(root, text = questionThreeInfo[1], variable=qThreeAOne)
 questionThreeAnswerOne.grid(column = 0, row = 13)
-questionThreeAnswerTwo = Checkbutton(root, text = questionThreeInfo[2])
+questionThreeAnswerTwo = Checkbutton(root, text = questionThreeInfo[2], variable=qThreeATwo)
 questionThreeAnswerTwo.grid(column = 0, row = 14)
-questionThreeAnswerThree = Checkbutton(root, text = questionThreeInfo[3])
+questionThreeAnswerThree = Checkbutton(root, text = questionThreeInfo[3], variable=qThreeAThree)
 questionThreeAnswerThree.grid(column = 0, row = 15)
 
 questionThreeSpaceTop = Label(root, text = "")
@@ -99,11 +111,15 @@ questionFourInfo = questionList[3]
 questionFourLabel = Label(root, text = questionFourInfo[0])
 questionFourLabel.grid(column=0,row=18)
 
-questionFourAnswerOne = Checkbutton(root, text = questionFourInfo[1])
+qFourAOne = IntVar()
+qFourATwo = IntVar()
+qFourAThree = IntVar()
+
+questionFourAnswerOne = Checkbutton(root, text = questionFourInfo[1], variable=qFourAOne)
 questionFourAnswerOne.grid(column = 0, row = 19)
-questionFourAnswerTwo = Checkbutton(root, text = questionFourInfo[2])
+questionFourAnswerTwo = Checkbutton(root, text = questionFourInfo[2], variable=qFourATwo)
 questionFourAnswerTwo.grid(column = 0, row = 20)
-questionFourAnswerThree = Checkbutton(root, text = questionFourInfo[3])
+questionFourAnswerThree = Checkbutton(root, text = questionFourInfo[3], variable=qFourAThree)
 questionFourAnswerThree.grid(column = 0, row = 21)
 
 questionFourSpaceTop = Label(root, text = "")
@@ -111,6 +127,7 @@ questionFourSpaceTop.grid(column=0,row=22)
 questionFourSpaceBottom = Label(root, text = "")
 questionFourSpaceBottom.grid(column=0,row=23)
 
+submitButton = Button(root, text = "Submit", command="getValues")
 
 
         
