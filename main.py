@@ -23,10 +23,14 @@ while count < 5:
         continue
     randomNumberChosen.append(randomNumber)
 
-    questionsChosen.append(testDict[randomNumber])
+    preshuffledList = testDict[randomNumber]
+    questionPrompt = preshuffledList[0]
+    preshuffledList.remove(questionPrompt)
+    random.shuffle(preshuffledList)
+    preshuffledList.insert(0, questionPrompt)
+
+    questionsChosen.append(preshuffledList)
     questionList.append(questionsChosen[count])
-    #label = Label(root, text = questionList[0])
-    #label.grid()
 
     questionCount = 1
     questionCountList = []
@@ -35,11 +39,18 @@ while count < 5:
         if randomCountNumber in questionCountList:
             continue
         questionCountList.append(randomCountNumber)
-        #print(questionCount, ". ", questionList[randomCountNumber])
-        questionCount += 1
 
+        questionCount += 1
     count += 1
 
+
+def get_values():
+    pass
+
+    #need to first randomize order of answer options
+    #use get method to pull correct answer and see if that answer has been checked
+        #this will require getting value from randomized list attributed to CheckButton and from unrandomized list
+    #respond with correct or no and the correct answer
 
 root = Tk()
 
@@ -57,15 +68,16 @@ qOneAThree = IntVar()
 
 questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1], variable=qOneAOne, onvalue=1, offvalue=0) 
 questionOneAnswerOne.grid(column = 0, row = 1)
-questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2], textvariable=qOneATwo)
+questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2], variable=qOneATwo)
 questionOneAnswerTwo.grid(column = 0, row = 2)
-questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3], textvariable=qOneAThree)
+questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3], variable=qOneAThree)
 questionOneAnswerThree.grid(column = 0, row = 3)
 
 questionOneSpaceTop = Label(root, text = "")
 questionOneSpaceTop.grid(column=0,row=4)
 questionOneSpaceBottom = Label(root, text = "")
 questionOneSpaceBottom.grid(column=0,row=5)
+
 
 questionTwoInfo = questionList[1]
 questionTwoLabel = Label(root, text = questionTwoInfo[0])
@@ -87,6 +99,7 @@ questionTwoSpaceTop.grid(column=0,row=10)
 questionTwoSpaceBottom = Label(root, text = "")
 questionTwoSpaceBottom.grid(column=0,row=11)
 
+
 questionThreeInfo = questionList[2]
 questionThreeLabel = Label(root, text = questionThreeInfo[0])
 questionThreeLabel.grid(column=0,row=12)
@@ -106,6 +119,7 @@ questionThreeSpaceTop = Label(root, text = "")
 questionThreeSpaceTop.grid(column=0,row=16)
 questionThreeSpaceBottom = Label(root, text = "")
 questionThreeSpaceBottom.grid(column=0,row=17)
+
 
 questionFourInfo = questionList[3]
 questionFourLabel = Label(root, text = questionFourInfo[0])
@@ -127,13 +141,10 @@ questionFourSpaceTop.grid(column=0,row=22)
 questionFourSpaceBottom = Label(root, text = "")
 questionFourSpaceBottom.grid(column=0,row=23)
 
-submitButton = Button(root, text = "Submit", command="getValues")
+submitButton = Button(root, text = "Submit", command="get_values")
 
 
-        
 
-
-root.mainloop()
 
 
 
