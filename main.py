@@ -1,15 +1,14 @@
 import random
 from tkinter import *
+import csv
 
-testDict = {
-    1 : ["What is One plus One?", 2, 1, 3],
-    2: ["How much cheese?", "none", 8, "all"],
-    3: ["Say three?", "three", " fsjldivc", "one"],
-    4: ["SAY HEY?", "hey", "ho", "heave"],
-    5: ["Joshua?", "JOSHUA", "JOSHUAAAA", "jeesh"],
-    6: ["How many blimps?", 5, 6, 7]
-}
-
+questionDict = {}
+rowOrder = 0
+with open('question_list.csv', mode='r') as file:
+    reader = csv.reader(file)
+    for line in reader:
+        questionDict[rowOrder] = line
+        rowOrder += 1
 
 count = 0
 questionsChosen = []
@@ -19,13 +18,13 @@ orderedQuestionList = []
 
 while count < 5:
 
-    randomNumber = random.randint(1,6)
+    randomNumber = random.randint(1,6) #needs length of dict
     if randomNumber in randomNumberChosen:
         continue
     randomNumberChosen.append(randomNumber)
 
-    orderedQuestionList.append(testDict[randomNumber])
-    preshuffledList = testDict[randomNumber]
+    orderedQuestionList.append(questionDict[randomNumber])
+    preshuffledList = questionDict[randomNumber]
     questionPrompt = preshuffledList[0]
     preshuffledList.remove(questionPrompt)
     random.shuffle(preshuffledList)
@@ -47,28 +46,50 @@ while count < 5:
 
 
 def get_values():
-    chosenAnswerOne = 0 
     questionOneList = orderedQuestionList[0]
+    questionTwoList = orderedQuestionList[1]
+    questionThreeList = orderedQuestionList[2]
+    questionFourList = orderedQuestionList[3]
 
     if qOneAOne.get() == 1:
-        #questionOneSpaceTop.config(text="YES")
-        if testAnswerOne == questionOneList[1]:
+        if questionOneAnswerOneValue == questionOneList[1]:
             questionOneSpaceTop.config(text="YES")
     elif qOneATwo.get() == 1:
-        if testAnswerTwo == questionOneList[1]:
+        if questionOneAnswerTwoValue == questionOneList[1]:
             questionOneSpaceTop.config(text="YES")
     elif qOneAThree.get() == 1:
-        if testAnswerThree == questionOneList[1]:
+        if questionOneAnswerThreeValue == questionOneList[1]:
             questionOneSpaceTop.config(text="YES")
 
+    if qTwoAOne.get() == 1:
+        if questionTwoAnswerOneValue == questionTwoList[1]:
+            questionTwoSpaceTop.config(text="YES")
+    elif qTwoATwo.get() == 1:
+        if questionTwoAnswerTwoValue == questionTwoList[1]:
+            questionTwoSpaceTop.config(text="YES")
+    elif qTwoAThree.get() == 1:
+        if questionTwoAnswerThreeValue == questionTwoList[1]:
+            questionTwoSpaceTop.config(text="YES")
 
+    if qThreeAOne.get() == 1:
+        if questionThreeAnswerOneValue == questionThreeList[1]:
+            questionThreeSpaceTop.config(text="YES")
+    elif qThreeATwo.get() == 1:
+        if questionThreeAnswerTwoValue == questionThreeList[1]:
+            questionThreeSpaceTop.config(text="YES")
+    elif qThreeAThree.get() == 1:
+        if questionThreeAnswerThreeValue == questionThreeList[1]:
+            questionThreeSpaceTop.config(text="YES")
 
-
-
-    #need to first randomize order of answer options
-    #use get method to pull correct answer and see if that answer has been checked
-        #this will require getting value from randomized list attributed to CheckButton and from unrandomized list
-    #respond with correct or no and the correct answer
+    if qFourAOne.get() == 1:
+        if questionFourAnswerOneValue == questionFourList[1]:
+            questionFourSpaceTop.config(text="YES")
+    elif qFourATwo.get() == 1:
+        if questionFourAnswerTwoValue == questionFourList[1]:
+            questionFourSpaceTop.config(text="YES")
+    elif qFourAThree.get() == 1:
+        if questionFourAnswerThreeValue == questionFourList[1]:
+            questionFourSpaceTop.config(text="YES")
 
 root = Tk()
 
@@ -86,13 +107,13 @@ qOneAThree = IntVar()
 
 questionOneAnswerOne = Checkbutton(root, text = questionOneInfo[1], variable=qOneAOne, onvalue=1, offvalue=0) 
 questionOneAnswerOne.grid(column = 0, row = 1)
-testAnswerOne = questionOneInfo[1]
+questionOneAnswerOneValue = questionOneInfo[1]
 questionOneAnswerTwo = Checkbutton(root, text = questionOneInfo[2], variable=qOneATwo)
 questionOneAnswerTwo.grid(column = 0, row = 2)
-testAnswerTwo = questionOneInfo[2]
+questionOneAnswerTwoValue = questionOneInfo[2]
 questionOneAnswerThree = Checkbutton(root, text = questionOneInfo[3], variable=qOneAThree)
 questionOneAnswerThree.grid(column = 0, row = 3)
-testAnswerThree = questionOneInfo[3]
+questionOneAnswerThreeValue = questionOneInfo[3]
 
 questionOneSpaceTop = Label(root, text = "")
 questionOneSpaceTop.grid(column=0,row=4)
@@ -110,10 +131,13 @@ qTwoAThree = IntVar()
 
 questionTwoAnswerOne = Checkbutton(root, text = questionTwoInfo[1], variable=qTwoAOne)
 questionTwoAnswerOne.grid(column = 0, row = 7)
+questionTwoAnswerOneValue = questionTwoInfo[1]
 questionTwoAnswerTwo = Checkbutton(root, text = questionTwoInfo[2], variable=qTwoATwo)
 questionTwoAnswerTwo.grid(column = 0, row = 8)
+questionTwoAnswerTwoValue = questionTwoInfo[2]
 questionTwoAnswerThree = Checkbutton(root, text = questionTwoInfo[3], variable=qTwoAThree)
 questionTwoAnswerThree.grid(column = 0, row = 9)
+questionTwoAnswerThreeValue = questionTwoInfo[3]
 
 questionTwoSpaceTop = Label(root, text = "")
 questionTwoSpaceTop.grid(column=0,row=10)
@@ -131,10 +155,13 @@ qThreeAThree = IntVar()
 
 questionThreeAnswerOne = Checkbutton(root, text = questionThreeInfo[1], variable=qThreeAOne)
 questionThreeAnswerOne.grid(column = 0, row = 13)
+questionThreeAnswerOneValue = questionThreeInfo[1]
 questionThreeAnswerTwo = Checkbutton(root, text = questionThreeInfo[2], variable=qThreeATwo)
 questionThreeAnswerTwo.grid(column = 0, row = 14)
+questionThreeAnswerTwoValue = questionThreeInfo[2]
 questionThreeAnswerThree = Checkbutton(root, text = questionThreeInfo[3], variable=qThreeAThree)
 questionThreeAnswerThree.grid(column = 0, row = 15)
+questionThreeAnswerThreeValue = questionThreeInfo[3]
 
 questionThreeSpaceTop = Label(root, text = "")
 questionThreeSpaceTop.grid(column=0,row=16)
@@ -152,10 +179,13 @@ qFourAThree = IntVar()
 
 questionFourAnswerOne = Checkbutton(root, text = questionFourInfo[1], variable=qFourAOne)
 questionFourAnswerOne.grid(column = 0, row = 19)
+questionFourAnswerOneValue = questionFourInfo[1]
 questionFourAnswerTwo = Checkbutton(root, text = questionFourInfo[2], variable=qFourATwo)
 questionFourAnswerTwo.grid(column = 0, row = 20)
+questionFourAnswerTwoValue = questionFourInfo[2]
 questionFourAnswerThree = Checkbutton(root, text = questionFourInfo[3], variable=qFourAThree)
 questionFourAnswerThree.grid(column = 0, row = 21)
+questionFourAnswerThreeValue = questionFourInfo[3]
 
 questionFourSpaceTop = Label(root, text = "")
 questionFourSpaceTop.grid(column=0,row=22)
