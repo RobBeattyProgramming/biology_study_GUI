@@ -33,10 +33,11 @@ while count < 4:
 
     count += 1
 
-#need to create list of prompts
-    #use lists as call keys before each label
-        #switch up function based on needs
-
+def check_values(answer, correctList):
+    if answer == correctList[0]:
+        return "correct"
+    else:
+        return "incorrect"
 
 def get_values():
     questionOneList = orderedQuestionDict[promptList[0]] 
@@ -45,45 +46,32 @@ def get_values():
     questionFourList = orderedQuestionDict[promptList[3]] 
 
     if qOneAOne.get() == 1:
-        if questionOneAnswerOneValue == questionOneList[0]:
-            questionOneSpaceTop.config(text="YES")
-    if qOneATwo.get() == 1:
-       if questionOneAnswerTwoValue == questionOneList[0]:
-            questionOneSpaceTop.config(text="YES")
-    if qOneAThree.get() == 1:
-        if questionOneAnswerThreeValue == questionOneList[0]:
-            questionOneSpaceTop.config(text="YES")
+        questionOneSpaceTop.config(text= check_values(questionOneAnswerOneValue, questionOneList))
+    elif qOneATwo.get() == 1:
+       questionOneSpaceTop.config(text= check_values(questionOneAnswerTwoValue, questionOneList))
+    elif qOneAThree.get() == 1:
+        questionOneSpaceTop.config(text= check_values(questionOneAnswerThreeValue, questionOneList))
 
     if qTwoAOne.get() == 1:
-        if questionTwoAnswerOneValue == questionTwoList[0]:
-            questionTwoSpaceTop.config(text="YES")
+        questionTwoSpaceTop.config(text=check_values(questionTwoAnswerOneValue, questionTwoList))
     elif qTwoATwo.get() == 1:
-        if questionTwoAnswerTwoValue == questionTwoList[0]:
-            questionTwoSpaceTop.config(text="YES")
+        questionTwoSpaceTop.config(text=check_values(questionTwoAnswerTwoValue, questionTwoList))
     elif qTwoAThree.get() == 1:
-        if questionTwoAnswerThreeValue == questionTwoList[0]:
-            questionTwoSpaceTop.config(text="YES")
-
+        questionTwoSpaceTop.config(text=check_values(questionTwoAnswerThreeValue, questionTwoList))
 
     if qThreeAOne.get() == 1:
-        if questionThreeAnswerOneValue == questionThreeList[0]:
-            questionThreeSpaceTop.config(text="YES")
+        questionThreeSpaceTop.config(text=check_values(questionThreeAnswerOneValue, questionThreeList))
     elif qThreeATwo.get() == 1:
-        if questionThreeAnswerTwoValue == questionThreeList[0]:
-            questionThreeSpaceTop.config(text="YES")
+        questionThreeSpaceTop.config(text=check_values(questionThreeAnswerTwoValue, questionThreeList))
     elif qThreeAThree.get() == 1:
-        if questionThreeAnswerThreeValue == questionThreeList[0]:
-            questionThreeSpaceTop.config(text="YES")
+        questionThreeSpaceTop.config(text=check_values(questionThreeAnswerThreeValue, questionThreeList))
 
     if qFourAOne.get() == 1:
-        if questionFourAnswerOneValue == questionFourList[0]:
-            questionFourSpaceTop.config(text="YES")
+        questionFourSpaceTop.config(text=check_values(questionFourAnswerOneValue, questionFourList))
     elif qFourATwo.get() == 1:
-        if questionFourAnswerTwoValue == questionFourList[0]:
-            questionFourSpaceTop.config(text="YES")
+        questionFourSpaceTop.config(text=check_values(questionFourAnswerTwoValue, questionFourList))
     elif qFourAThree.get() == 1:
-        if questionFourAnswerThreeValue == questionFourList[0]:
-            questionFourSpaceTop.config(text="YES")
+        questionFourSpaceTop.config(text=check_values(questionFourAnswerThreeValue, questionFourList))
 
 root = Tk()
 
