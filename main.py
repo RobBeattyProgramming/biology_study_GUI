@@ -17,7 +17,7 @@ randomizedQuestionDict = {}
 promptList = []
 
 while count < 4:
-    randomNumber = random.randint(1, len(fullQuestionList) - 1) 
+    randomNumber = random.randint(0, len(fullQuestionList) - 1) 
     if randomNumber in randomNumberChosen:
         continue
     randomNumberChosen.append(randomNumber)
@@ -76,7 +76,7 @@ def get_values():
 root = Tk()
 
 root.title("Biology Beginner Questions")
-root.geometry('400x800')
+root.geometry('600x800')
 
 questionOneInfo = randomizedQuestionDict[promptList[0]]
 questionOneLabel = Label(root, text = promptList[0])
